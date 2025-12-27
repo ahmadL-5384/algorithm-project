@@ -1,5 +1,5 @@
 
-def trappedW_BF(height):
+def trappedW_BF(height,width):
     """
     Calculates the total amount of rainwater that can be trapped.
     Approach: Brute Force - Iterate through every element and find 
@@ -25,8 +25,9 @@ def trappedW_BF(height):
         for j in range(i + 1, n):
             rightMax = max(rightMax, height[j])
         # 5. Calculate Water for current index i
-        res += min(leftMax, rightMax) - height[i]
+        res += (min(leftMax, rightMax) - height[i]) * width[i]
     print(res)    
     return res
 
-trappedW_BF([5, 1, 4, 1, 5])
+
+trappedW_BF([-2, 3, -4, 2, -1, 5, -3],[ 2, 2,  3, 1,  2, 1,  2])
